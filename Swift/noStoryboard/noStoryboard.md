@@ -13,7 +13,7 @@
 
 이제 필요 없는 Main.storyboard를 삭제해주겠습니다.<br>
 마우스 우클릭으로 <span style='background-color: #f6f8fa'>**Move to Trash**</span>를 클릭하거나<br>
-Main.storyboard를 클릭 후 <span style='background-color: #f6f8fa'>**command + return**</span>을 동시에 눌려줍니다.
+Main.storyboard를 클릭 후 <span style='background-color: #f6f8fa'>**command + delete**</span>를 동시에 눌려줍니다.
 
 <img width="400" alt="1f" src="https://user-images.githubusercontent.com/37105602/212392594-eda9db08-30d1-4be7-b371-98e6e077d7db.png">
 
@@ -32,7 +32,7 @@ Main.storyboard를 클릭 후 <span style='background-color: #f6f8fa'>**command 
 <img width="800" alt="1f" src="https://user-images.githubusercontent.com/37105602/212392914-997c3666-c09e-4f4e-b12e-9ad592e2b057.png">
 
 그 후 **noStoryboard_Sample**에 들어가서 (Xcode 14버전 이상)<br>
-**TARGETS**에 **Deployment Info**안에 있는 **Supprots multiple windows**를 클릭합니다.
+**TARGETS**에 **Deployment Info**안에 있는 **Supports multiple windows**를 클릭합니다.
 
 <img width="800" alt="1f" src="https://user-images.githubusercontent.com/37105602/212393147-c6402f4f-8e7f-4dbf-83d9-c342a57ced64.png">
 
