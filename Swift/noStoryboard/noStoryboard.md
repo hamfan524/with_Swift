@@ -112,6 +112,7 @@ struct ViewController_Previews: PreviewProvider{
     }
     
 }
+#endif
 ```
 SwiftUI에서 UIViewController를 렌더링하는 코드입니다. 이걸 추가해준 뒤 **option+command+return**을 눌려줍니다.
 
