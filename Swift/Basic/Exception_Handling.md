@@ -80,13 +80,13 @@ do{
     print("입력이 잘못되었습니다.")
 } catch OpenError.invalidInput(let inputValue){
     print("\(inputValue)는 비밀번호가 아닙니다.")
-} // 입력이 잘못되었습니다.
+} // abc123는 비밀번호가 아닙니다.
 ```
 위에서 오류 케이스를 나누어 주었으니 정의한 케이스별로 처리해줍니다.
 
 ```Swift
 do{
-    try machine.inputValue("cba111")
+    try machine.inputValue("")
 } catch /*(let error)*/ {
     switch error{
     case OpenError.outOfRange:   
@@ -96,21 +96,21 @@ do{
     default:
         print("알수없는 오류 \(error)")
     }
-}
+} // 입력이 잘못되었습니다.
 ```
 케이스별로 처리하기 때문에 **switch**문으로도 표현 가능합니다.
 
 ```Swift
 do{
-    result = try machine.UnLock("abc123")
+    result = try machine.UnLock("")
 } catch {
     print(error)
-} 
+} //outOfRange
 
-//오류만 잡고 핸들링 하지 않는 경우
+
 do{
     result = try machine.UnLock("bca111")
-}
+} //오류만 잡고 핸들링 하지 않는 경우
 ```
 또 굳이 하나하나의 에러를 핸들링할 필요가 없을 시엔 이렇게 표현도 가능합니다.
 ### **try?** 와 **try!**
