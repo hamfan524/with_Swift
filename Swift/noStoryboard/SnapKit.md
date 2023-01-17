@@ -2,7 +2,7 @@
 >autolayout을 짧은 코드로 구현할 수 있게 도와주는 라이브러리입니다.
 
 ## SnapKit 장점
-SnapKit 사용하지 않았을 때 코드
+SnapKit을 사용하지 않은 코드
 ```Swift
 self.view.addSubview(tableView)
 self.view.backgroundColor = .white
@@ -26,7 +26,7 @@ tableView.snp.makeConstraints { make in
 ```
 많이 줄어든 코드를 확인할 수 있습니다.  
 사용해 보면서 느낀 가장 큰 장점은 동일한 constraints를 여럿이 묶어서 한 번에 설정할 수 있다는 것입니다.  
-그리고 또 다른 장점은 매번 코드 베이스로 UI를 구현할 때, 정말 귀찮으면서도 빠지면 에러를 불러일으키는 ```translatesAutoresizingMaskIntoConstraints = false``` 이 코드를 대시해주기 때문에 상당히 편리합니다.
+그리고 또 다른 장점은 매번 코드 베이스로 UI를 구현할 때, 정말 귀찮으면서도 빠지면 에러를 불러일으키는 ```translatesAutoresizingMaskIntoConstraints = false``` 이 코드를 대신해주기 때문에 상당히 편리합니다.
 
 ## SnapKit 설치
 >[SnapKit Git주소](https://github.com/SnapKit/SnapKit)의 installation 파트를 참고하면 됩니다.  
@@ -55,9 +55,8 @@ superview.addSubview(box)
 box.snp.makeConstraints { (make) -> Void in
     make.edges.equalTo(superview).inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
 }
-
 ```
-**NSLayoutConstraint**를 통해서 **AutoLayout**을 설정하는 것에 비해서 코드가 대폭 줄어든 것을 볼 수 있습니다.
+`NSLayoutConstraint`를 통해서 `AutoLayout`을 설정하는 것에 비해서 코드가 대폭 줄어든 것을 볼 수 있습니다.
 
 ## Equal로 처리하는 것만 있는 것은 아니다 ( Not all things are created equal)
 - ```.equalTo```의 경우는 ```NSLayoutConstraint.Relation.equal```와 동일
@@ -176,7 +175,7 @@ self.topConstraint.updateOffset(5)
 ```
 
 ### 2. snp.updateConstraints  
-Constraint를 변경해줄 때는 ```snp.makeConstraints```를 대신하여 ```snp.updateConstraints```를 사용하면 됩니다.
+Constraint를 변경해줄 때는 ```snp.makeConstraints```를 대신하여 ```snp.updateConstraints```를 사용합니다.
 
 ```Swift
 // this is Apple's recommended place for adding/updating constraints
@@ -234,6 +233,25 @@ class MyViewController: UIVewController {
 
 }
 ```
+
+## 간편한 디버그 (Debug with ease)
+>코드로든 스토리보드로든 레이아웃을 짤 때 레이아웃이 맞지 않아 콘솔에 오류가 생기는 경우가 있습니다.  
+이미지의 주소라던지 각 객체의 주소가 `0x000ff110` 이런식으로 나오기 때문에 이게 어떤 객체를 말하는건지 파악하기 힘든 경우가 많습니다.  
+`.labled`를 사용하면 이후 콘솔창에 뭐가 문제인지 확인하기 편해집니다.
+
+```Swift
+button.snp.makeConstratins { (make) -> Void in
+  make.top.equalTo(otherView).labeled("buttonViewTopConstraint")
+}
+```
+`.labled`를 위와 같이 constraint 끝에 추가 할 수 있습니다.
+
+아래와 같이 레이아웃이 충돌이 났을 때, 콘솔창에 어디서 생긴 문제인지 로그로 나타나기 때문에 확인하기 편해집니다.  
+<img width="600" alt="1f" src="https://user-images.githubusercontent.com/37105602/212883588-ef43b011-a744-4a38-84c1-a90cec6fa44f.png">
+
+보통 breakpoint를 잡거나 레이아웃 에러를 잡아주는 사이트 등에 들어가 파악하는 경우도 많지만  
+스냅킷에서는 `.labled` 기능을 사용하여 편리하게 확인 가능합니다.  
+**간단하게 얘기하면 각 객체에 이름을 달아줘 디버그할 때 쉽게 찾을 수 있다는 장점이 있습니다.**
 ## Reference
-[SnapKit Git주소](https://github.com/SnapKit/SnapKit)
+[SnapKit Git주소](https://github.com/SnapKit/SnapKit)  
 [SnapKit 공식문서](https://snapkit.github.io/SnapKit/docs/)
