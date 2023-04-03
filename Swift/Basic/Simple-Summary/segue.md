@@ -5,7 +5,8 @@ tags : #ios #ui #uikit #화면이동 #view #스토리보드 #storyboard #세그�
 - 스토리보드에서 스토리보드로 이동할 때 사용
 - present modally 창을 띄운다는 뜻?
 - 우측 창을 통해 세그웨이에 identirier를 추가할 수 있다.
-<img src="https://user-images.githubusercontent.com/70102600/229506829-0646fe11-157b-40c1-912f-bfc79f9a06c6.png" width="500">---
+- <img src="https://user-images.githubusercontent.com/70102600/229506829-0646fe11-157b-40c1-912f-bfc79f9a06c6.png" width="200">
+---
 3. 뷰 컨트롤러끼리 연결한 세그웨이
 - control + 드래그 를 이용하여 "두 view controller를 연결하면" 세그웨이(segue)가 된다.
 ```swift
